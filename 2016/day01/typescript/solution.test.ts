@@ -1,5 +1,6 @@
 import { partOne, partTwo } from "./solution";
 import { readFileSync } from "fs";
+import { expect, test } from "vitest";
 
 const input = readFileSync(`${__dirname}/../input`).toString();
 
