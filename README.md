@@ -7,7 +7,7 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
 
 # Todo
 
--   [ ] Setup python structure and tests
+-   [x] Setup python structure and tests
 -   [ ] Add/refactor old Javascript/ts solutions
 -   [ ] Add/refactor old python solutions
 -   [ ] Add existing rust solutions
@@ -19,3 +19,4 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
     -   [x] Day01
         -   Typescript :heavy_check_mark: :heavy_check_mark:
         -   Rust :heavy_check_mark: :heavy_check_mark:
+        -   Python :heavy_check_mark: :heavy_check_mark:
