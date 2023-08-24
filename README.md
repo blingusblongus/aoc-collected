@@ -20,6 +20,9 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
 
 # Progress
 
+-   [ ] 2022
+    -   [ ] Day01
+        -   [Typescript](./2022/day01/typescript/solution.ts) :star: :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
