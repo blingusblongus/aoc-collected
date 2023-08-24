@@ -41,7 +41,7 @@ export function partTwo(input: string) {
     let x = 0;
     let y = 0;
 
-    let map = new Map<string, boolean>();
+    let set = new Set<string>();
 
     let direction: (typeof directions)[number] = directions[0];
 
@@ -71,11 +71,11 @@ export function partTwo(input: string) {
                     break;
             }
 
-            if (map.get(`${x},${y}`)) {
+            if (set.has(`${x},${y}`)) {
                 return Math.abs(x) + Math.abs(y);
             }
 
-            map.set(`${x},${y}`, true);
+            set.add(`${x},${y}`);
         }
     }
 
