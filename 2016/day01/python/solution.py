@@ -10,11 +10,9 @@ def part_one(input):
         count = int(step[1:])
 
         if turn == "L":
-            facing = directions[(directions.index(facing) - 1) %
-                                4]
+            facing = directions[(directions.index(facing) - 1) % 4]
         elif turn == "R":
-            facing = directions[(directions.index(facing) + 1) %
-                                4]
+            facing = directions[(directions.index(facing) + 1) % 4]
         else:
             raise Exception("Invalid Turn")
 
