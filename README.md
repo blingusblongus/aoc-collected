@@ -17,6 +17,6 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
 
 -   [ ] 2016
     -   [x] Day01
-        -   Typescript :heavy_check_mark: :heavy_check_mark:
-        -   Rust :heavy_check_mark: :heavy_check_mark:
-        -   Python :heavy_check_mark: :heavy_check_mark:
+        -   [Typescript]('./2016/day01/typescript/solution.ts') :heavy_check_mark: :heavy_check_mark:
+        -   [Rust]('./2016/day01/rust/src/main.rs') :heavy_check_mark: :heavy_check_mark:
+        -   [Python]('./2016/day01/python/solution.py') :heavy_check_mark: :heavy_check_mark:
