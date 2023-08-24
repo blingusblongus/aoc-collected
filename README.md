@@ -11,6 +11,7 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
 -   [ ] Add/refactor old Javascript/ts solutions
 -   [ ] Add/refactor old python solutions
 -   [ ] Add existing rust solutions
+-   [ ] Script boilerplate setup
 
 # Progress
 
