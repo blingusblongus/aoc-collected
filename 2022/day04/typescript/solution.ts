@@ -20,7 +20,7 @@ export function partTwo(input: string) {
     return count;
 }
 
-function parseInput(input: string): number[][][] {
+function parseInput(input: string) {
     return input
         .trim()
         .split(/\n/g)
@@ -29,12 +29,10 @@ function parseInput(input: string): number[][][] {
         );
 }
 
-const checkContain = (x: number[], y: number[]): boolean => {
-    if (x[0] <= y[0] && x[1] >= y[1]) return true;
-    return false;
-};
+function checkContain(x: number[], y: number[]) {
+    return x[0] <= y[0] && x[1] >= y[1];
+}
 
-const checkOverlap = (x: number[], y: number[]): boolean => {
-    if (x[1] >= y[0] && y[1] >= x[0]) return true;
-    return false;
-};
+function checkOverlap(x: number[], y: number[]) {
+    return x[1] >= y[0] && y[1] >= x[0];
+}
