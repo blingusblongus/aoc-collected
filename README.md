@@ -29,6 +29,8 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
         -   [Typescript](./2022/day02/typescript/solution.ts) :star: :star:
     -   [x] Day03
         -   [Typescript](./2022/day03/typescript/solution.ts) :star: :star:
+    -   [x] Day03
+        -   [Typescript](./2022/day04/typescript/solution.ts) :star: :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
