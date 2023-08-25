@@ -38,7 +38,7 @@ if (partOneAnswer) {
 
 if (partTwoAnswer) {
     test("matches partTwo answer (if known)", () => {
-        expect(partOne(input)).toEqual(partOneAnswer);
+        expect(partTwo(input)).toEqual(partTwoAnswer);
     });
 }
 
