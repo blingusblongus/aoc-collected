@@ -40,6 +40,8 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
         -   [Python](./2022/day06/python/solution.py) :star: :star:
     -   [x] Day07
         -   [Typescript](./2022/day07/typescript/solution.ts) :star: :star:
+    -   [x] Day08
+        -   [Typescript](./2022/day08/typescript/solution.ts) :star: :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
