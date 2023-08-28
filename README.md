@@ -36,6 +36,8 @@ This repo is an effort to centralize my AoC code so I can compare and learn from
     -   [x] Day06
         -   [Typescript](./2022/day06/typescript/solution.ts) :star: :star:
         -   [Python](./2022/day06/python/solution.py) :star: :star:
+    -   [x] Day07
+        -   [Typescript](./2022/day07/typescript/solution.ts) :star: :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
