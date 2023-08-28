@@ -12,16 +12,21 @@ def test_part_one():
 
 
 def test_part_two():
-    for case in part_one_cases:
+    for case in part_two_cases:
         assert part_two(case[0]) == case[1]
 
 
-# test against final answers (if known)
-with open("../input", "r") as file:
-    input = file.read()
+def test_part_one_final():
+    with open("../input", "r") as file:
+        input = file.read()
 
-    if part_one_answer is not None:
+        assert part_one_answer is not None
         assert part_one(input) == part_one_answer
 
-    if part_two_answer is not None:
-        assert part_two(input) == part_one_answer
+
+def test_part_two_final():
+    with open("../input", "r") as file:
+        input = file.read()
+
+        assert part_two_answer is not None
+        assert part_two(input) == part_two_answer
