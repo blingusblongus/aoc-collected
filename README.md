@@ -5,6 +5,8 @@ Previously, I used separate repos for each language, and usually started a diffe
 
 This repo is an effort to centralize my AoC code so I can compare and learn from the different strategies, improve old solutions with my current knowledge, and implement better testing practices overall.
 
+It's currently a WIP as I migrate my answers in, and doesn't yet contain all my solutions.
+
 # Todo
 
 -   [x] Setup python structure and tests
