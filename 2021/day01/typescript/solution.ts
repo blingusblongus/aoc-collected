@@ -9,6 +9,8 @@ export function partTwo(input: string) {
 }
 
 function increasingIntervals(arr: number[], window: number) {
+    if (window < 1 || window > arr.length - 1) throw Error("invalid window");
+
     let count = 0;
     let prev = 0;
     let curr = 0;
