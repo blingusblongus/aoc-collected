@@ -17,8 +17,8 @@ const partTwoAnswer = 440640;
 // Part Two
 partOneCases.forEach((v, i) => {
     test("partOne: case " + i, () => {
-        expect(partOne(input)).toBeDefined();
-        expect(partOne(input)).is.not.null;
+        expect(partOne(v[0])).toBeDefined();
+        expect(partOne(v[0])).is.not.null;
         expect(partOne(v[0])).toEqual(v[1]);
     });
 });
@@ -34,8 +34,8 @@ if (partOneAnswer) {
 // Part Two
 partTwoCases.forEach((v, i) => {
     test("partTwo: case " + i, () => {
-        expect(partTwo(input)).toBeDefined();
-        expect(partTwo(input)).is.not.null;
+        expect(partTwo(v[0])).toBeDefined();
+        expect(partTwo(v[0])).is.not.null;
         expect(partTwo(v[0])).toEqual(v[1]);
     });
 });

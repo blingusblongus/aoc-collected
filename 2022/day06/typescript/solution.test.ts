@@ -27,7 +27,7 @@ const partTwoAnswer = 3120;
 
 partOneCases.forEach((v, i) => {
     test("partOne: case " + i, () => {
-        expect(partOne(input)).is.not.null;
+        expect(partOne(v[0])).is.not.null;
         expect(partOne(v[0])).toEqual(v[1]);
     });
 });
