@@ -5,6 +5,8 @@ Previously, I used separate repos for each language, and usually started a diffe
 
 This repo is an effort to centralize my AoC code so I can compare and learn from the different strategies, improve old solutions with my current knowledge, and implement better testing practices overall.
 
+As I review and refactor old solutions, my overall goal is not to code golf, but rather to look for opportunities to write extensible, readable, and reasonably defensive code, as well as try new techniques and strategies.
+
 It's currently a WIP as I migrate my answers in, and doesn't yet contain all my solutions.
 
 # Todo
@@ -18,7 +20,8 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
     -   [ ] 2022
 -   [ ] Add/refactor old python solutions
 -   [ ] Add existing rust solutions
--   [ ] Script boilerplate setup
+-   [x] Add templates
+-   [ ] Script template setup(?)
 
 # Progress
 
