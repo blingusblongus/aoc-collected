@@ -1,10 +1,11 @@
 export function partOne(input: string) {
     const lines = parseInput(input);
+    const half = lines.length / 2;
+
     let gamma = "";
     let epsilon = "";
 
     for (let i = 0; i < lines[0].length; i++) {
-        let half = lines.length / 2;
         let countOnes = 0;
         let countZeroes = 0;
 
