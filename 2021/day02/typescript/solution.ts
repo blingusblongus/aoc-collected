@@ -14,6 +14,7 @@ export function partTwo(input: string) {
     return solve(input, navigateSubByAim);
 }
 
+// Use strategy pattern here, as the only difference between the solutions is specific behavior
 function solve(input: string, navBehavior: (x: Movement[]) => Position) {
     const instructions = parseInstructions(input);
     const { horiz, depth } = navBehavior(instructions);
