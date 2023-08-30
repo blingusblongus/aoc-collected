@@ -4,9 +4,11 @@ import { expect, test, describe } from "vitest";
 
 const input = readFileSync(`${__dirname}/../input`).toString();
 
-test("has input", () => {
-    expect(input.length).toBeGreaterThan(0);
-    expect(input).toBeDefined();
+describe("solution folder", () => {
+    test("has input", () => {
+        expect(input.length).toBeGreaterThan(0);
+        expect(input).toBeDefined();
+    });
 });
 
 const testInput = `0,9 -> 5,9
@@ -26,72 +28,75 @@ const partTwoCases = [[testInput, 12]] as const;
 const partTwoAnswer = 20500;
 const testFullInput = true;
 
-// Part One
-partOneCases.forEach((v, i) => {
-    test("partOne: case " + i, () => {
-        let result = partOne(v[0]);
-        expect(result).toBeDefined();
-        expect(result).is.not.null;
-        expect(result).toEqual(v[1]);
+describe("partOne", () => {
+    partOneCases.forEach((v, i) => {
+        test("partOne: case " + i, () => {
+            let result = partOne(v[0]);
+            expect(result).toBeDefined();
+            expect(result).is.not.null;
+            expect(result).toEqual(v[1]);
+        });
     });
+    if (partOneAnswer && testFullInput) {
+        test("matches partOne answer (if known)", () => {
+            let result = partOne(input);
+            expect(result).toBeDefined();
+            expect(result).is.not.null;
+            expect(result).toEqual(partOneAnswer);
+        });
+    }
 });
 
-if (partOneAnswer && testFullInput) {
-    test("matches partOne answer (if known)", () => {
-        let result = partOne(input);
-        expect(result).toBeDefined();
-        expect(result).is.not.null;
-        expect(result).toEqual(partOneAnswer);
+describe("partTwo", () => {
+    partTwoCases.forEach((v, i) => {
+        test("partTwo: case " + i, () => {
+            let result = partTwo(v[0]);
+            expect(result).toBeDefined();
+            expect(result).is.not.null;
+            expect(result).toEqual(v[1]);
+        });
     });
-}
 
-// Part Two
-partTwoCases.forEach((v, i) => {
-    test("partTwo: case " + i, () => {
-        let result = partTwo(v[0]);
-        expect(result).toBeDefined();
-        expect(result).is.not.null;
-        expect(result).toEqual(v[1]);
-    });
+    if (partTwoAnswer && testFullInput) {
+        test("matches partTwo answer (if known)", () => {
+            let result = partTwo(input);
+            expect(result).toBeDefined();
+            expect(result).is.not.null;
+            expect(partTwo(input)).toEqual(partTwoAnswer);
+        });
+    }
 });
 
-if (partTwoAnswer && testFullInput) {
-    test("matches partTwo answer (if known)", () => {
-        let result = partTwo(input);
-        expect(result).toBeDefined();
-        expect(result).is.not.null;
-        expect(partTwo(input)).toEqual(partTwoAnswer);
+describe("utils", () => {
+    describe("getLineType", () => {
+        test("identifies vertical line", () => {
+            expect(
+                getLineType([
+                    [7, 0],
+                    [7, 4],
+                ])
+            ).toEqual("vertical");
+        });
+        test("identifies horizontal line", () => {
+            expect(
+                getLineType([
+                    [3, 8],
+                    [1, 8],
+                ])
+            ).toEqual("horizontal");
+        });
+        test("ignores non-orthagonal lines", () => {
+            expect(
+                getLineType([
+                    [2, 2],
+                    [5, 5],
+                ])
+            ).toEqual("diagonal");
+        });
     });
-}
+});
 
 if (testFullInput) {
     console.log("partOne answer", partOne(input));
     console.log("partTwo answer", partTwo(input));
 }
-
-describe("getLineType", () => {
-    test("identifies vertical line", () => {
-        expect(
-            getLineType([
-                [7, 0],
-                [7, 4],
-            ])
-        ).toEqual("vertical");
-    });
-    test("identifies horizontal line", () => {
-        expect(
-            getLineType([
-                [3, 8],
-                [1, 8],
-            ])
-        ).toEqual("horizontal");
-    });
-    test("ignores non-orthagonal lines", () => {
-        expect(
-            getLineType([
-                [2, 2],
-                [5, 5],
-            ])
-        ).toEqual("diagonal");
-    });
-});
