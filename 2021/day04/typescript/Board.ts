@@ -1,7 +1,7 @@
 import { Coords } from "./solution";
 
 export class Board {
-    rows: number[][];
+    private readonly rows: number[][];
 
     constructor(rows: number[][]) {
         this.rows = rows;
@@ -36,10 +36,7 @@ export class Board {
             }
         }
 
-        if (vertWin || horizWin) {
-            return true;
-        }
-        return false;
+        return vertWin || horizWin;
     }
 
     calculateResult(picked: number[]) {

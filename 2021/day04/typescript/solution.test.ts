@@ -1,7 +1,6 @@
 import { partOne, partTwo } from "./solution";
 import { readFileSync } from "fs";
 import { expect, test } from "vitest";
-import { Board } from "./Board";
 
 const input = readFileSync(`${__dirname}/../input`).toString();
 
@@ -45,13 +44,13 @@ partOneCases.forEach((v, i) => {
     });
 });
 
-// if (partOneAnswer && !testsOnly) {
-//     test("matches partOne answer (if known)", () => {
-//         expect(partOne(input)).toBeDefined();
-//         expect(partOne(input)).is.not.null;
-//         expect(partOne(input)).toEqual(partOneAnswer);
-//     });
-// }
+if (partOneAnswer && !testsOnly) {
+    test("matches partOne answer (if known)", () => {
+        expect(partOne(input)).toBeDefined();
+        expect(partOne(input)).is.not.null;
+        expect(partOne(input)).toEqual(partOneAnswer);
+    });
+}
 
 // Part Two
 partTwoCases.forEach((v, i) => {

@@ -53,23 +53,19 @@ export function partTwo(input: string) {
 function parseInput(input: string) {
     let nums: number[] = [];
     let boards: Board[] = [];
-    try {
-        const elements = input.split(/\s*\n\s*\n\s*/g);
-        nums =
-            elements
-                .shift()
-                ?.split(",")
-                .map((x) => parseInt(x)) ?? [];
-        boards = elements.map(
-            (x) =>
-                new Board(
-                    x
-                        .split(/\s*\n\s*/g)
-                        .map((y) => y.split(/\s+/g).map((z) => parseInt(z)))
-                )
-        );
-    } catch (error) {
-        console.error("Error parsing input:", error);
-    }
+    const elements = input.split(/\s*\n\s*\n\s*/g);
+    nums =
+        elements
+            .shift()
+            ?.split(",")
+            .map((x) => parseInt(x)) ?? [];
+    boards = elements.map(
+        (x) =>
+            new Board(
+                x
+                    .split(/\s*\n\s*/g)
+                    .map((y) => y.split(/\s+/g).map((z) => parseInt(z)))
+            )
+    );
     return { nums, boards };
 }
