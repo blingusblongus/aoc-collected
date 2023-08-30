@@ -23,7 +23,31 @@ export function partOne(input: string) {
 }
 
 export function partTwo(input: string) {
-    return null;
+    const { nums, boards } = parseInput(input.trim());
+    const picked = nums.splice(0, 4);
+
+    while (nums.length > 0 && boards.length > 0) {
+        let pickedNum = nums.shift();
+
+        picked.push(pickedNum!);
+
+        // reverse iteration so we can splice out boards without an extra loop
+        for (let i = boards.length - 1; i >= 0; --i) {
+            let board = boards[i];
+            const coords: Coords | null = board.findNumCoords(
+                picked[picked.length - 1]
+            );
+            if (!coords) continue;
+            if (board.checkForWin(coords, picked)) {
+                if (boards.length === 1) {
+                    return board.calculateResult(picked);
+                }
+
+                boards.splice(i, 1);
+            }
+        }
+    }
+    throw Error("No winning board found");
 }
 
 function parseInput(input: string) {

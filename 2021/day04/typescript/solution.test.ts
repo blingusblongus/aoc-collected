@@ -32,9 +32,9 @@ const testInput = `7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,
 
 const partOneCases = [[testInput, 4512]] as const;
 const partOneAnswer = 10680;
-const partTwoCases = [] as const;
+const partTwoCases = [[testInput, 1924]] as const;
 const partTwoAnswer = 31892;
-const testsOnly = true;
+const testsOnly = false;
 
 // Part One
 partOneCases.forEach((v, i) => {
@@ -45,22 +45,22 @@ partOneCases.forEach((v, i) => {
     });
 });
 
-if (partOneAnswer && !testsOnly) {
-    test("matches partOne answer (if known)", () => {
-        expect(partOne(input)).toBeDefined();
-        expect(partOne(input)).is.not.null;
-        expect(partOne(input)).toEqual(partOneAnswer);
-    });
-}
+// if (partOneAnswer && !testsOnly) {
+//     test("matches partOne answer (if known)", () => {
+//         expect(partOne(input)).toBeDefined();
+//         expect(partOne(input)).is.not.null;
+//         expect(partOne(input)).toEqual(partOneAnswer);
+//     });
+// }
 
 // Part Two
-// partTwoCases.forEach((v, i) => {
-//     test("partTwo: case " + i, () => {
-//         expect(partTwo(v[0])).toBeDefined();
-//         expect(partTwo(v[0])).is.not.null;
-//         expect(partTwo(v[0])).toEqual(v[1]);
-//     });
-// });
+partTwoCases.forEach((v, i) => {
+    test("partTwo: case " + i, () => {
+        expect(partTwo(v[0])).toBeDefined();
+        expect(partTwo(v[0])).is.not.null;
+        expect(partTwo(v[0])).toEqual(v[1]);
+    });
+});
 
 if (partTwoAnswer && !testsOnly) {
     test("matches partTwo answer (if known)", () => {
