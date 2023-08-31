@@ -10,10 +10,10 @@ const testInput = `2199943210
 8767896789
 9899965678`;
 
-const useFullInput = false;
+const useFullInput = true;
 const partOneCases = [[testInput, 15]] as const;
 const partOneAnswer = 541;
-const partTwoCases = [] as const;
+const partTwoCases = [[testInput, 1134]] as const;
 const partTwoAnswer = null;
 
 describe("solution folder", () => {
