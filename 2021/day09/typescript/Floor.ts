@@ -1,12 +1,12 @@
 import { Coords } from "./solution";
 
 export class Floor {
-    private grid: number[][];
     public readonly height: number;
     public readonly width: number;
+    private _grid: number[][];
 
     constructor(grid: number[][]) {
-        this.grid = grid;
+        this._grid = grid;
         this.height = grid.length;
         this.width = grid[0].length;
     }
@@ -26,7 +26,7 @@ export class Floor {
         for (let neighbor of neighbors) {
             if (!this.isValidPoint(neighbor)) continue;
 
-            if (this.grid[neighbor.y][neighbor.x] <= this.grid[y][x])
+            if (this._grid[neighbor.y][neighbor.x] <= this._grid[y][x])
                 return false;
         }
         return true;
@@ -37,15 +37,15 @@ export class Floor {
     }
 
     getPointHeight({ x, y }: Coords) {
-        if (this.grid[y][x] === undefined)
+        if (this._grid[y][x] === undefined)
             throw Error(`Invalid point specified: ${{ x, y }}`);
-        return this.grid[y][x];
+        return this._grid[y][x];
     }
 
     findBasin(point: Coords, acc?: Set<string>) {
         if (!acc) acc = new Set<string>();
 
-        let val = this.grid[point.y][point.x];
+        let val = this._grid[point.y][point.x];
         if (val === 9) return;
 
         if (acc.has(JSON.stringify(point))) return;
