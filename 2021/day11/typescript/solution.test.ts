@@ -1,6 +1,6 @@
 import { Cavern, partOne, partTwo } from "./solution";
 import { readFileSync } from "fs";
-import { expect, test, describe, assert } from "vitest";
+import { expect, test, describe } from "vitest";
 
 const input = readFileSync(`${__dirname}/../input`).toString();
 
@@ -8,7 +8,7 @@ const useFullInput = true;
 const partOneCases = [] as const;
 const partOneAnswer = 1688;
 const partTwoCases = [] as const;
-const partTwoAnswer = null;
+const partTwoAnswer = 403;
 
 describe("solution folder", () => {
     test("has input", () => {
@@ -112,10 +112,10 @@ describe("cavern class", () => {
             const cavern = new Cavern(largeCavern);
             expect(cavern.simulate(100).flashes).toEqual(1656);
         });
-        // test("finds syncronization step", () => {
-        //     const cavern = new Cavern(largeCavern);
-        //     expect(cavern.syncsAt()).toEqual(195);
-        // });
+        test("finds syncronization step", () => {
+            const cavern = new Cavern(largeCavern);
+            expect(cavern.syncsAt()).toEqual(195);
+        });
     });
 });
 

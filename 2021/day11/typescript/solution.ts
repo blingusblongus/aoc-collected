@@ -59,6 +59,28 @@ export class Cavern {
         return this._grid[y][x];
     }
 
+    public syncsAt() {
+        let step = 0;
+        let synced = this.isSynced();
+
+        while (!synced) {
+            this.step();
+            step++;
+            synced = this.isSynced();
+        }
+
+        return step;
+    }
+
+    private isSynced() {
+        for (let y = 0; y < this.height; ++y) {
+            for (let x = 0; x < this.width; ++x) {
+                if (this._grid[y][x] !== 0) return false;
+            }
+        }
+        return true;
+    }
+
     private step() {
         for (let y = 0; y < this.height; ++y) {
             for (let x = 0; x < this.width; ++x) {
@@ -112,5 +134,6 @@ export function partOne(input: string) {
 }
 
 export function partTwo(input: string) {
-    return null;
+    const cavern = new Cavern(input);
+    return cavern.syncsAt();
 }
