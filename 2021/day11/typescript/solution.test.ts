@@ -5,9 +5,7 @@ import { expect, test, describe } from "vitest";
 const input = readFileSync(`${__dirname}/../input`).toString();
 
 const useFullInput = true;
-const partOneCases = [] as const;
 const partOneAnswer = 1688;
-const partTwoCases = [] as const;
 const partTwoAnswer = 403;
 
 describe("solution folder", () => {
@@ -120,15 +118,6 @@ describe("cavern class", () => {
 });
 
 describe("partOne", () => {
-    partOneCases.forEach((v, i) => {
-        test("fulfills case " + i, () => {
-            let result = partOne(v[0]);
-            expect(result).toBeDefined();
-            expect(result).is.not.null;
-            expect(result).toEqual(v[1]);
-        });
-    });
-
     if (partOneAnswer && useFullInput) {
         test("matches partOne answer (if known)", () => {
             let result = partOne(input);
@@ -140,15 +129,6 @@ describe("partOne", () => {
 });
 
 describe("partTwo", () => {
-    partTwoCases.forEach((v, i) => {
-        test("fulfills case " + i, () => {
-            let result = partTwo(v[0]);
-            expect(result).toBeDefined();
-            expect(result).is.not.null;
-            expect(result).toEqual(v[1]);
-        });
-    });
-
     if (partTwoAnswer && useFullInput) {
         test("matches partTwo answer (if known)", () => {
             let result = partTwo(input);

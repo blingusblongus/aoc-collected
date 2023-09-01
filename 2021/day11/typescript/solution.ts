@@ -1,9 +1,9 @@
 type Point = { x: number; y: number };
 export class Cavern {
     private _grid: number[][];
+    private _flashes: number = 0;
     public readonly width: number;
     public readonly height: number;
-    private _flashes: number = 0;
 
     constructor(input: string) {
         this._grid = this.parseInput(input);
@@ -24,6 +24,10 @@ export class Cavern {
 
     public toString() {
         return this._grid.map((row) => row.join("")).join("\n");
+    }
+
+    public getOctopusValue({ x, y }: Point) {
+        return this._grid[y][x];
     }
 
     public getNeighbors({ x, y }: Point) {
@@ -53,10 +57,6 @@ export class Cavern {
                     .split("")
                     .map((octopus) => parseInt(octopus))
             );
-    }
-
-    public getOctopusValue({ x, y }: Point) {
-        return this._grid[y][x];
     }
 
     public syncsAt() {
