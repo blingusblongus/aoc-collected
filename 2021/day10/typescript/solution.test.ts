@@ -25,7 +25,7 @@ const partOneCases = [
     [testInput, 26397],
 ] as const;
 const partOneAnswer = null;
-const partTwoCases = [] as const;
+const partTwoCases = [[testInput, 288957]] as const;
 const partTwoAnswer = null;
 
 describe("solution folder", () => {
