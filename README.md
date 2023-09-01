@@ -64,6 +64,8 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
         -   [Typescript](./2021/day08/typescript/solution.ts) :star:
     -   [x] [DayO9](./2021/day09/)
         -   [Typescript](./2021/day09/typescript/solution.ts) :star: :star:
+    -   [x] [Day10](./2021/day10/)
+        -   [Typescript](./2021/day10/typescript/solution.ts) :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
