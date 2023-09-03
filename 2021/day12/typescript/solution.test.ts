@@ -17,7 +17,7 @@ const partTwoCases = [
     [example2, 103],
     [example3, 3509],
 ] as const;
-const partTwoAnswer = null;
+const partTwoAnswer = 136767;
 
 describe("solution folder", () => {
     test("has input", () => {

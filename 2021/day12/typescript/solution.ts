@@ -1,6 +1,6 @@
 type Connection = [string, string];
 type Node = {
-    visited: boolean;
+    timesVisited: number;
     isBig: boolean;
     connectedNodes: Set<string>;
 };
@@ -8,12 +8,16 @@ export function partOne(input: string): number {
     const connections = parseConnections(input) as Connection[];
     const nodeMap = createNodeMap(connections);
 
-    const paths = findPaths(nodeMap);
-    return paths.length;
+    const paths = findPathsV2({ nodeMap, smallVisitedTwice: true });
+    return paths;
 }
 
 export function partTwo(input: string) {
-    return null;
+    const connections = parseConnections(input) as Connection[];
+    const nodeMap = createNodeMap(connections);
+
+    const paths = findPathsV2({ nodeMap });
+    return paths;
 }
 
 function parseConnections(input: string) {
@@ -43,7 +47,7 @@ function initNodeFromConnection(
         entry.connectedNodes.add(n2);
     } else {
         map.set(n1, {
-            visited: false,
+            timesVisited: 0,
             isBig: isUpperCase(n1),
             connectedNodes: new Set<string>().add(n2),
         });
@@ -54,34 +58,92 @@ function isUpperCase(s: string) {
     return s === s.toUpperCase();
 }
 
-function findPaths(
-    nodeMap: Map<string, Node>,
-    nodeName = "start",
-    currentPath: string[] = [],
-    paths: string[][] = []
-): string[][] {
-    const node = nodeMap.get(nodeName);
-    if (!node) throw Error("Can't read node:" + nodeName);
+type IFindPaths = {
+    nodeMap: Map<string, Node>;
+    path?: string[];
+    currentNode?: string;
+    allowSecondVisit?: boolean;
+    visitedTwice?: boolean;
+};
+function findPaths({ nodeMap, path = [], currentNode = "start" }: IFindPaths) {
+    let paths = 0;
+    const node = nodeMap.get(currentNode);
+    if (!node) return 0;
 
-    if (nodeName === "end") {
-        paths.push(currentPath.concat(nodeName));
-        return paths;
+    if (currentNode === "end") return 1;
+
+    path.push(currentNode);
+
+    const visits = path.filter((pathNode) => pathNode === currentNode).length;
+    if (!node.isBig && visits > 1) {
+        path.pop();
+        return 0;
     }
 
-    let wasVisited = node.visited;
-    node.visited = true;
-
-    for (let n2 of node?.connectedNodes) {
-        let node2 = nodeMap.get(n2);
+    for (let nextNode of node.connectedNodes) {
+        let node2 = nodeMap.get(nextNode);
         if (!node2) continue;
-        if (!node2.isBig && node2.visited) continue;
 
-        // Clone the current path before recursion
-        const newPath = [...currentPath, nodeName];
-        findPaths(nodeMap, n2, newPath, paths);
+        paths += findPaths({
+            nodeMap,
+            path,
+            currentNode: nextNode,
+        });
     }
 
-    // Unmark visited nodes as we backtrack
-    node.visited = wasVisited;
+    path.pop();
+    return paths;
+}
+
+type IFindPathsV2 = IFindPaths & {
+    smallVisitedTwice?: boolean;
+};
+function findPathsV2({
+    nodeMap,
+    path = [],
+    currentNode = "start",
+    smallVisitedTwice = false,
+}: IFindPathsV2) {
+    let paths = 0;
+    const node = nodeMap.get(currentNode);
+    if (!node) return 0;
+
+    if (currentNode === "end") return 1;
+
+    path.push(currentNode);
+
+    let prevTwice = smallVisitedTwice;
+    const visits = path.filter((pathNode) => pathNode === currentNode).length;
+
+    if (currentNode === "start" && visits > 1) {
+        path.pop();
+        return 0;
+    }
+
+    if (!node.isBig) {
+        if (smallVisitedTwice && visits > 1) {
+            path.pop();
+            return 0;
+        }
+
+        if (!smallVisitedTwice && visits > 1) {
+            smallVisitedTwice = true;
+        }
+    }
+
+    for (let nextNode of node.connectedNodes) {
+        let node2 = nodeMap.get(nextNode);
+        if (!node2) continue;
+
+        paths += findPathsV2({
+            nodeMap,
+            path,
+            currentNode: nextNode,
+            smallVisitedTwice,
+        });
+    }
+
+    smallVisitedTwice = prevTwice;
+    path.pop();
     return paths;
 }
