@@ -9,6 +9,17 @@ As I review and refactor old solutions, my overall goal is not to code golf, but
 
 It's currently a WIP as I migrate my answers in, and doesn't yet contain all my solutions.
 
+# Testing
+
+## Python
+
+1. Ensure virtual environment is active: `source .venv/bin/activate`
+2. Navigate to the `python` directory of the current challenge (e.g., `cd 2018/day01/python`)
+3. Run `pytest` to run all files with the name `test_*.py`
+
+`pytest` will look for files with the `test_` prefix, and run functions within them that also have the `test_` prefix and at least one assertion.
+
+
 # Todo
 
 -   [x] Setup python structure and tests
