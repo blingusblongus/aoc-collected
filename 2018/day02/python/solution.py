@@ -26,7 +26,32 @@ def part_one(input):
 
 
 def part_two(input):
+    lines = input.strip().split("\n")
+
+    for i, line in enumerate(lines):
+        for j, line2 in enumerate(lines[i+1:]):
+            result = find_one_different(line, line2)
+            if result[0] is True:
+                return result[1]
     return None
+
+
+def find_one_different(line1, line2):
+    match = False
+    diffLetter = ""
+    for k, letter in enumerate(line1):
+        print('comparing', letter, line2[k])
+        if letter != line2[k] and match is False:
+            match = True
+            diffLetter = letter
+        elif letter != line2[k] and match is True:
+            match = False
+            break
+
+    if match is True:
+        return [True, line1.replace(diffLetter, "")]
+
+    return [False, ""]
 
 
 with open("../input", "r") as file:
