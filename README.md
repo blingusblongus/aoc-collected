@@ -83,12 +83,12 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
     -   [x] [Day12](./2021/day12/)
         -   [Typescript](./2021/day12/typescript/solution.ts) :star: :star:
 -   [ ] 2018
-    -   [x] [Day01]('./2018/day01')
-        -   [Python]('./2018/day01/python') :star: :star:
-    -   [x] [Day02]('./2018/day02')
-        -   [Python]('./2018/day02/python/') :star: :star:
-    -   [x] [Day03]('./2018/day03')
-        -   [Python]('./2018/day03/python/') :star: :star:
+    -   [x] [Day01](./2018/day01)
+        -   [Python](./2018/day01/python) :star: :star:
+    -   [x] [Day02](./2018/day02)
+        -   [Python](./2018/day02/python/) :star: :star:
+    -   [x] [Day03](./2018/day03)
+        -   [Python](./2018/day03/python/) :star: :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
