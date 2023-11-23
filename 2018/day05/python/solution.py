@@ -25,4 +25,4 @@ def is_case_match(letter1, letter2):
     elif letter1.islower():
         return letter1.upper() == letter2
 
-    print(f"Uh oh, is_case_match failed - encountered [{letter1}, letter2]")
+    print(f"Uh oh, is_case_match failed - encountered [{letter1}, {letter2}]")
