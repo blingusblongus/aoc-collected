@@ -1,22 +1,18 @@
-
 def part_one(input, log=False):
     input = input.strip()
-    i = 0
+    return len(remove_polymers(input))
 
-    while i < len(input) - 1:
-        if log is True:
-            print(input)
-        if i + 1 > len(input) - 1:
-            return len(input)
-        if is_case_match(input[i], input[i + 1]):
-            if i == 0 and i + 1 < len(input):
-                input = input[2:]
-            else:
-                input = input[:i] + input[i+2:]
-            i = min(i - 2, i - 1, 0)
-        else:
-            i += 1
-    return len(input)
+
+def part_two(input):
+    allLower = "abcdefghijklmnopqrstuvwxyz"
+    lowest = float('inf')
+
+    for letter in allLower:
+        reduced_polymer_length = len(remove_polymers(
+            input, [letter, letter.upper()]))
+        if reduced_polymer_length < lowest:
+            lowest = reduced_polymer_length
+    return lowest
 
 
 def is_case_match(letter1, letter2):
@@ -26,3 +22,27 @@ def is_case_match(letter1, letter2):
         return letter1.upper() == letter2
 
     print(f"Uh oh, is_case_match failed - encountered [{letter1}, {letter2}]")
+
+
+def remove_polymers(input, skip=[]):
+    chars = list(reversed(input.strip()))
+    result = []
+
+    while len(chars) > 0:
+        curr = chars.pop()
+
+        # skip letters if specified
+        if curr in skip:
+            continue
+
+        # populate prev stack if empty
+        if len(result) < 1:
+            result.append(curr)
+            continue
+
+        if is_case_match(result[-1], curr):
+            result.pop()
+        else:
+            result.append(curr)
+
+    return "".join(result)
