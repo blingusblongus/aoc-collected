@@ -1,6 +1,7 @@
 from solution import part_one
-from solution import manhattan_distance, get_coord_tuples
-# from solution import part_two
+from solution import manhattan_distance
+from solution import within_distance, get_coord_tuples
+from solution import part_two
 
 input = """
 1, 1
@@ -28,3 +29,21 @@ def test_part_one_actual():
         # assert result < 5370
         # assert result < 4613
         assert result == 4589
+
+
+def test_within_distance():
+    tuples = get_coord_tuples(input.strip())
+    assert within_distance((4, 3), tuples, 32) is True
+    assert within_distance((4, 2), tuples, 32) is False
+    assert within_distance((0, 0), tuples, 32) is False
+
+
+def test_part_two_sample():
+    result = part_two(input, 32)
+    assert result == 16
+
+
+def test_part_two_actual():
+    with open("../input", "r") as file:
+        result = part_two(file.read(), 10000)
+        assert result == 40252

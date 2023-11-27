@@ -1,26 +1,9 @@
 # My bounds check is bad
 def part_one(input):
     tuples = get_coord_tuples(input.strip())
-    bounds = {
-        'x_min': float('inf'),
-        'y_min': float('inf'),
-        'x_max': float('-inf'),
-        'y_max': float('-inf'),
-    }
     distribution = {}
     ignore_list = set()
-
-    for tuple in tuples:
-        x, y = tuple
-
-        if x < bounds["x_min"]:
-            bounds["x_min"] = x
-        if y < bounds["y_min"]:
-            bounds["y_min"] = y
-        if x > bounds["x_max"]:
-            bounds["x_max"] = x
-        if y > bounds["y_max"]:
-            bounds["y_max"] = y
+    bounds = get_bounds_from_tuples(tuples)
 
     # Hacky solution - increase the search area such that the
     # borders must contain infinitely scaling areas
@@ -43,21 +26,6 @@ def part_one(input):
                     ignore_list.add(min_index)
 
     max_area = 0
-    print(distribution)
-    print(ignore_list)
-    # for index in distribution:
-    #     x, y = tuples[index]
-    #
-    #     if (
-    #         x == bounds["x_min"] or
-    #         x == bounds["x_max"] or
-    #         y == bounds["y_min"] or
-    #         y == bounds["y_max"]
-    #     ):
-    #         continue
-    #     elif distribution[index] > max_area:
-    #         max_area = distribution[index]
-
     for index in distribution:
         if index not in ignore_list and distribution[index] > max_area:
             max_area = distribution[index]
@@ -78,3 +46,55 @@ def manhattan_distance(coords1, coords2):
     x2, y2 = coords2
 
     return abs(x2 - x1) + abs(y2 - y1)
+
+
+def get_bounds_from_tuples(tuples):
+    bounds = {
+        'x_min': float('inf'),
+        'y_min': float('inf'),
+        'x_max': float('-inf'),
+        'y_max': float('-inf'),
+    }
+    for tuple in tuples:
+        x, y = tuple
+
+        if x < bounds["x_min"]:
+            bounds["x_min"] = x
+        if y < bounds["y_min"]:
+            bounds["y_min"] = y
+        if x > bounds["x_max"]:
+            bounds["x_max"] = x
+        if y > bounds["y_max"]:
+            bounds["y_max"] = y
+    return bounds
+
+
+def within_distance(coords, tuples, distance):
+    x1, y1 = coords
+
+    total_distance = 0
+
+    for x2, y2 in tuples:
+        total_distance += abs(x2 - x1) + abs(y2 - y1)
+        if total_distance >= distance:
+            return False
+
+    return True
+
+
+def part_two(input, distance):
+    tuples = get_coord_tuples(input.strip())
+    bounds = get_bounds_from_tuples(tuples)
+    total_checked = 0
+    count = 0
+
+    for y in range(bounds["y_min"], bounds["y_max"] + 1):
+        for x in range(bounds["x_min"], bounds["x_max"] + 1):
+            total_checked += 1
+            if within_distance((x, y), tuples, distance):
+                count += 1
+
+    # print(f"{count} of {total_checked}.")
+    # print(f"\n{bounds}")
+
+    return count
