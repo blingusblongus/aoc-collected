@@ -1,0 +1,1 @@
+- You don't have to expand the search area as much as I thought to determine which areas are infinitely expanding. Since we're measuring Manhattan Distance, if you increase the bounds of the search area by one, any segment on the perimeter will belong to the same region/border as the one next to it (since you're effectively increasing the distance to ALL points by 1).
