@@ -93,6 +93,8 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
         -   [Python](./2018/day04/python/)
     -   [x] [Day05](./2018/day05)
         -   [Python](./2018/day05/python/) :star: :star:
+    -   [x] [Day06](./2018/day06)
+        -   [Python](./2018/day06/python/) :star: :star:
 -   [ ] 2016
     -   [x] Day01
         -   [Typescript](./2016/day01/typescript/solution.ts) :star: :star:
