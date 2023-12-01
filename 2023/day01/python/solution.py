@@ -9,18 +9,17 @@ backward_re = re.compile(r"\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin")
 
 
 def part_one(input):
-    sum = 0
-    for line in input.strip().splitlines():
-        first, last = find_edges(line)
-        two_digit = int(str(map[first]) + str(map[last]))
-        sum += two_digit
-    return sum
+    return add_edges(input)
 
 
 def part_two(input):
+    return add_edges(input, allow_strings=True)
+
+
+def add_edges(input, allow_strings=False):
     sum = 0
     for line in input.strip().splitlines():
-        first, last = find_edges(line, allow_strings=True)
+        first, last = find_edges(line, allow_strings)
         two_digit = int(str(map[first]) + str(map[last]))
         sum += two_digit
     return sum
