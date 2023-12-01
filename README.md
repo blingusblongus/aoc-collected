@@ -11,6 +11,12 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
 
 # Testing
 
+## Typescript
+
+From project root, just run `npm test <pathToFolderOrFile>`.
+Vitest will search for files following the naming convention `*.test.ts/js`
+
+
 ## Python
 
 1. Ensure virtual environment is active: `source .venv/bin/activate`
