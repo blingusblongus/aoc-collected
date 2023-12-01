@@ -29,7 +29,6 @@ export function partOne(input: string) {
     for (let line of lines) {
         const [first, last] = getEdgeNums(line, re)
         const val = parseInt(map[first].toString() + map[last].toString())
-        console.log(val)
         sum += val
     }
     return sum;
@@ -37,23 +36,33 @@ export function partOne(input: string) {
 
 export function partTwo(input: string) {
     console.log('part two')
-    // const re = /\d|one|two|three|four|five|six|seven|eight|nine/
-    const re = /(?=\b(\d)|(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine))\b/g
+    // const re = /(?=\b(\d)|(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine))\b/g
     const lines = input.trim().split(/\s*\n/g)
     let sum = 0;
 
-    console.log('test edge case')
-    console.log(getEdgeNums('eighteighthree', re))
     for (let line of lines) {
-        const [first, last] = getEdgeNums(line, re)
+        const [first, last] = getEdgeNums2(line)
         const val = parseInt(map[first].toString() + map[last].toString())
-        console.log(val)
         sum += val
     }
 
     return sum;
 }
 
+function getEdgeNums2(s: string) {
+    const startRe = /\d|one|two|three|four|five|six|seven|eight|nine/
+    const end_re = /\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/;
+
+    const start = s.match(startRe)[0]
+    const end = reverseString(s).match(end_re)
+    console.log(start)
+    console.log(reverseString(end[0]))
+    return [start, reverseString(end[0])]
+}
+
+function reverseString(s: string) {
+    return s.split('').reverse().join('')
+}
 
 function getEdgeNums(s: string, re) {
     let match = s.match(re);

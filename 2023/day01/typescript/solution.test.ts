@@ -35,11 +35,11 @@ zoneight234
         expect(result).toBe(281)
     })
 
-    // test("solves actual case", () => {
-    //     console.log('actual')
-    //     let result = partTwo(input);
-    //     console.log(result)
-    //     expect(result).toBeLessThan(53519)
-    // })
+    test("solves actual case", () => {
+        console.log('actual')
+        let result = partTwo(input);
+        console.log(result)
+        expect(result).toBeLessThan(53519)
+    })
 });
 
