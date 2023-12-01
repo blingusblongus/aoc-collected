@@ -30,16 +30,15 @@ zoneight234
 7pqrstsixteen`
 
     test("solves test case", () => {
-        console.log('test')
         const result = partTwo(testInput);
         expect(result).toBe(281)
     })
 
     test("solves actual case", () => {
-        console.log('actual')
         let result = partTwo(input);
-        console.log(result)
+        console.log("result:", result)
         expect(result).toBeLessThan(53519)
+        expect(result).toBe(53515)
     })
 });
 
