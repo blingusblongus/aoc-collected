@@ -30,8 +30,4 @@ def find_edges(line: str, allow_strings=False):
     first = re.search(forward_re if allow_strings else digit_re, line)
     line = line[::-1]
     last = re.search(backward_re if allow_strings else digit_re, line)
-
-    if first.group() and last.group():
-        return first.group(), last.group()[::-1]
-    else:
-        print("something wrong, ", first, last)
+    return first.group(), last.group()[::-1]
