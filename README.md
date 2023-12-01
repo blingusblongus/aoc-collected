@@ -43,6 +43,10 @@ Vitest will search for files following the naming convention `*.test.ts/js`
 
 # Progress
 
+-   [ ] 2023
+    -   [x] [DayO1](./2023/day01/)
+        -   [Typescript](./2023/day01/typescript/solution.ts) :star: :star:
+        -   [Python](./2023/day01/python/solution.ts) :star: :star:
 -   [ ] 2022
     -   [x] Day01
         -   [Typescript](./2022/day01/typescript/solution.ts) :star: :star:
