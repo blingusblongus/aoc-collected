@@ -5,6 +5,8 @@ node_modules/
 
 **/target/
 
+**/input
+
 # Added by cargo
 
 /target
