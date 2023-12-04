@@ -61,7 +61,7 @@ export function partTwo(input: string) {
             if (line[j] === "*") {
                 let searched: Coords[] = []
                 let numsFound: string[] = [];
-                console.log("found at ", j, i)
+                // console.log("found at ", j, i)
 
                 for (let yOffset = -1; yOffset <= 1; yOffset++) {
                     // skip if y out of bounds
@@ -84,8 +84,6 @@ export function partTwo(input: string) {
                         if (alreadySearched) continue;
 
                         const spot = lines[i + yOffset][j + xOffset]
-                        // console.log(xOffset)
-                        // console.log(spot, i + yOffset, j + xOffset)
 
                         // search spot for digit
                         if (/\d/.test(spot)) {
@@ -101,9 +99,7 @@ export function partTwo(input: string) {
                                 numstring = checkSpot + numstring;
                                 searched.push({ x: leftIndex, y: i + yOffset })
                                 leftIndex--;
-                                // console.log('currentnum', checkSpot)
                                 checkSpot = lines[i + yOffset][leftIndex]
-                                // console.log('next num', checkSpot)
                             }
 
                             let rightIndex = j + xOffset + 1;
@@ -123,7 +119,7 @@ export function partTwo(input: string) {
                 if (numsFound.length == 2) {
                     let gearValue = parseInt(numsFound[0]) * parseInt(numsFound[1])
                     result += gearValue
-                    console.log('gear found, value:', gearValue)
+                    // console.log('gear found, value:', gearValue)
                 }
                 // console.log(numsFound)
             }
@@ -133,32 +129,3 @@ export function partTwo(input: string) {
     return result
 }
 
-// class Engine {
-//     private lines: string[];
-//     public width: number;
-//     public height: number;
-//
-//     constructor(input: string) {
-//         this.lines = input.trim().split(/\n\s*/)
-//         this.height = this.lines.length;
-//         this.width = this.lines[0].length;
-//     }
-//
-//     public getRow(y: number) {
-//         if (y < 0 || y >= this.height) {
-//             console.log("Row out of bounds")
-//             return null;
-//         }
-//         return this.lines[y];
-//     }
-//
-//     public getCell(x: number, y: number) {
-//         let row = this.getRow(y);
-//         if (!row || x < 0 || x >= row.length) {
-//             console.log("x out of bounds");
-//             return null
-//         }
-//         return this.lines[y][x];
-//     }
-//
-// }
