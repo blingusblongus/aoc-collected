@@ -21,7 +21,6 @@ describe("part one", () => {
             const result = checkGame("Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red", maximums);
             expect(result).toBe(false)
         })
-
     })
 
     test("solves sample", () => {
