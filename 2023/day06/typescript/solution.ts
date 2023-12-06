@@ -31,6 +31,18 @@ export function getWinningRange(duration: number, goalDistance: number) {
     return result;
 }
 
-export function scoreWinningOptions(options: GameData[]) {
-    return null;
+export function partTwo(input: string) {
+    const [timeStr, distStr] = input.trim().split(/\n/)
+    const times = timeStr.match(/\d+/g);
+    const distances = distStr.match(/\d+/g);
+
+    if (!times || !distances) {
+        throw Error("Error parsing times/distances");
+    }
+    const time = parseInt(times.join(""));
+    const distance = parseInt(distances.join(""));
+
+    const wins = getWinningRange(time, distance)
+    return wins.length
 }
+
