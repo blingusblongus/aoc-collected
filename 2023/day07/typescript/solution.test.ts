@@ -1,4 +1,4 @@
-import { partOne, partTwo, handType, Type } from "./solution";
+import { partOne, partTwo, handType, Type, handType2, sortHands2 } from "./solution";
 import { readFileSync } from "fs";
 import { expect, test, describe } from "vitest";
 
@@ -47,13 +47,30 @@ describe("part one", () => {
 })
 
 describe("part two", () => {
+    describe("sortHands2", () => {
+        test("sorts J's correctly", () => {
+            const hands = [
+                { raw: "JKKK2", type: handType2("JKKK2"), bid: 1 },
+                { raw: "QQQQ2", type: handType2("QQQQ2"), bid: 1 },
+            ]
+            expect(hands.sort(sortHands2)).toStrictEqual([
+                { raw: "JKKK2", type: handType2("JKKK2"), bid: 1 },
+                { raw: "QQQQ2", type: handType2("QQQQ2"), bid: 1 },
+            ])
+            expect(hands.reverse().sort(sortHands2)).toStrictEqual([
+                { raw: "JKKK2", type: handType2("JKKK2"), bid: 1 },
+                { raw: "QQQQ2", type: handType2("QQQQ2"), bid: 1 },
+            ])
+        })
+    })
     test("solves sample", () => {
         let result = partTwo(testInput)
         expect(result).toBe(5905)
     })
-    // test("solves actual", () => {
-    //     let result = partTwo(input)
-    //     console.log("part two:", result)
-    //     expect(result).toBe(34278221);
-    // })
+    test("solves actual", () => {
+        let result = partTwo(input)
+        console.log("part two:", result)
+        expect(result).toBeLessThan(253926070);
+        expect(result).toBe(253630098);
+    })
 })
