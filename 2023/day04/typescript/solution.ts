@@ -43,6 +43,10 @@ export function partTwo(input: string) {
         const count = scoreCard(card.content);
 
         for (let j = i + 1; j < i + 1 + count; ++j) {
+            // Handle Final Cards (overflow)
+            if (!cards[j]) {
+                break;
+            };
             cards[j].copies += cards[i].copies;
         }
     }
