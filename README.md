@@ -13,6 +13,10 @@ It's currently a WIP as I migrate my answers in, and doesn't yet contain all my 
 
 ## Typescript
 
+In project root, create `.env` file with `AOC_SESSION=<your session id>`. You can get your session ID by examining your cookies.
+
+New challenges (and hopefully all of them, when I get around to it) will use your session ID to automatically download the input if it hasn't been downloaded yet, allowing tests to work without committing input to github.
+
 From project root, just run `npm test <pathToFolderOrFile>`.
 Vitest will search for files following the naming convention `*.test.ts/js`
 
