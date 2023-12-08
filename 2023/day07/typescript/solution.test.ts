@@ -1,8 +1,29 @@
 import { partOne, partTwo, handType, Type, handType2, sortHands2 } from "./solution";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync, writeFileSync } from "fs";
 import { expect, test, describe } from "vitest";
+import dotenv from 'dotenv';
 
-const input = readFileSync(`${__dirname}/../input`).toString();
+dotenv.config()
+
+console.log(process.env.AOC_SESSION)
+
+
+let input = "";
+const inputPath = `${__dirname}/../input`
+if (!existsSync(inputPath)) {
+    const apiUrl = 'https://adventofcode.com/2023/day/7/input'
+    try {
+        const response = await fetch(apiUrl, {
+            headers: { 'Cookie': "session=" + process.env.AOC_SESSION ?? "" }
+        })
+        let responseText = await response.text();
+        writeFileSync(inputPath, responseText);
+    } catch (err) {
+        console.error(err);
+    }
+}
+input = readFileSync(inputPath).toString();
+
 
 const testInput = `32T3K 765
 T55J5 684
