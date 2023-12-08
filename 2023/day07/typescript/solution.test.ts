@@ -1,28 +1,8 @@
 import { partOne, partTwo, handType, Type, handType2, sortHands2 } from "./solution";
-import { readFileSync, existsSync, writeFileSync } from "fs";
 import { expect, test, describe } from "vitest";
-import dotenv from 'dotenv';
+import getTypescriptInput from "../../../utils/getTypescriptInput";
 
-dotenv.config()
-
-let input = "";
-const inputPath = `${__dirname}/../input`
-if (!existsSync(inputPath)) {
-    const path = __dirname.split("/");
-    const year = path[path.length - 3];
-    const day = Number(path[path.length - 2].match(/\d+/))
-    const apiUrl = `https://adventofcode.com/${year}/day/${day}/input`
-    try {
-        const response = await fetch(apiUrl, {
-            headers: { 'Cookie': "session=" + process.env.AOC_SESSION ?? "" }
-        })
-        let responseText = await response.text();
-        writeFileSync(inputPath, responseText);
-    } catch (err) {
-        console.error("problem fetching file", err);
-    }
-}
-input = readFileSync(inputPath).toString();
+const input = await getTypescriptInput(__dirname);
 
 const testInput = `32T3K 765
 T55J5 684
