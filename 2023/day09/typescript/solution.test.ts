@@ -21,15 +21,14 @@ describe("part one", () => {
     })
 })
 
-// describe("part two", () => {
-//     test("solves sample", () => {
-//         let result = partTwo(testInput)
-//         expect(result).toBe(5905)
-//     })
-//     test("solves actual", () => {
-//         let result = partTwo(input)
-//         console.log("part two:", result)
-//         expect(result).toBeLessThan(253926070);
-//         expect(result).toBe(253630098);
-//     })
-// })
+describe("part two", () => {
+    test("solves sample", () => {
+        let result = partTwo(testInput)
+        expect(result).toBe(2)
+    })
+    test("solves actual", () => {
+        let result = partTwo(input)
+        console.log("part two:", result)
+        expect(result).toBe(1077);
+    })
+})

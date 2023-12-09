@@ -11,6 +11,19 @@ export function partOne(input: string) {
     return result;
 }
 
+export function partTwo(input: string) {
+    const histories = parseInput(input);
+    let result = 0;
+
+
+    for (let history of histories) {
+        const extrapolation = extrapolateHistory(history, true);
+        result += extrapolation;
+    }
+
+    return result;
+}
+
 function getDifferences(nums: number[]) {
     const result: number[] = [];
     for (let i = 1; i < nums.length; ++i) {
@@ -19,16 +32,13 @@ function getDifferences(nums: number[]) {
     return result
 }
 
-export function partTwo() {
-    return null;
-}
 
 function parseInput(input: string) {
     return input.trim().split(/\n/)
         .map(line => line.split(/\s/).map(Number))
 }
 
-function extrapolateHistory(history: number[]) {
+function extrapolateHistory(history: number[], reverse: boolean = false) {
     const arrs: number[][] = [history]
     let last = history;
 
@@ -37,11 +47,27 @@ function extrapolateHistory(history: number[]) {
         last = arrs[arrs.length - 1];
     }
 
+    if (reverse) {
+        return getPast(arrs);
+    } else {
+        return getFuture(arrs);
+    }
+}
+
+function getFuture(arrs: number[][]): number {
     let result = 0;
     for (let i = arrs.length - 2; i > -1; --i) {
         let currLine = arrs[i];
         result = currLine[currLine.length - 1] + result;
     }
+    return result
+}
 
-    return result;
+function getPast(arrs: number[][]): number {
+    let result = 0;
+    for (let i = arrs.length - 2; i > -1; --i) {
+        let currLine = arrs[i];
+        result = currLine[0] - result;
+    }
+    return result
 }
