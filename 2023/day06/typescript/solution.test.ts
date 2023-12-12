@@ -1,8 +1,8 @@
 import { getWinningRange, partOne, partTwo } from "./solution";
-import { readFileSync } from "fs";
 import { expect, test, describe } from "vitest";
+import getTypescriptInput from "../../../utils/getTypescriptInput";
 
-const input = readFileSync(`${__dirname}/../input`).toString();
+const input = await getTypescriptInput(__dirname);
 
 const testInput = `Time:      7  15   30
 Distance:  9  40  200`

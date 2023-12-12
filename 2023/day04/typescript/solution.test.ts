@@ -1,8 +1,8 @@
 import { partOne, scoreCard, partOneScoring, partTwo } from "./solution";
-import { readFileSync } from "fs";
 import { expect, test, describe } from "vitest";
+import getTypescriptInput from "../../../utils/getTypescriptInput";
 
-const input = readFileSync(`${__dirname}/../input`).toString();
+const input = await getTypescriptInput(__dirname);
 
 const testInput = `
 Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
