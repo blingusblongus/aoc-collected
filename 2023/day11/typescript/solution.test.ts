@@ -1,4 +1,4 @@
-import { partOne, expandUniverse } from "./solution";
+import { solve } from "./solution";
 import { expect, test, describe } from "vitest";
 import getTypescriptInput from "../../../utils/getTypescriptInput";
 
@@ -17,52 +17,30 @@ const testInput = `...#......
 
 describe("part one", () => {
     test("solves sample", () => {
-        let result = partOne(testInput);
+        let result = solve(testInput, 1);
         expect(result).toBe(374)
     })
 
-    test("expands universe", () => {
-        let before = [
-            '...#......', '.......#..',
-            '#.........', '..........',
-            '......#...', '.#........',
-            '.........#', '..........',
-            '.......#..', '#...#.....'
-        ];
-
-        let after = `....#........
-.........#...
-#............
-.............
-.............
-........#....
-.#...........
-............#
-.............
-.............
-.........#...
-#....#.......`.split(/\n/g);
-
-        expect(expandUniverse(before)).toStrictEqual(after)
-
-    })
-
     test("solves actual", () => {
-        let result = partOne(input);
+        let result = solve(input, 1);
         console.log("part one:", result)
         expect(result).toBe(10228230);
     })
 })
 
-// describe("part two", () => {
-//     test("solves sample", () => {
-//         let result = partTwo(testInput)
-//         expect(result).toBe(5905)
-//     })
-//     test("solves actual", () => {
-//         let result = partTwo(input)
-//         console.log("part two:", result)
-//         expect(result).toBeLessThan(253926070);
-//         expect(result).toBe(253630098);
-//     })
-// })
+describe("part two", () => {
+    test("solves sample", () => {
+        let result = solve(testInput, 9)
+        expect(result).toBe(1030)
+    })
+    test("solves sample", () => {
+        let result = solve(testInput, 99)
+        expect(result).toBe(8410)
+    })
+    test("solves actual", () => {
+        let result = solve(input, 999999)
+        console.log("part two:", result)
+        expect(result).toBeLessThan(447064009334102);
+        expect(result).toBe(447073334102);
+    })
+})
