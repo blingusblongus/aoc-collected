@@ -1,8 +1,8 @@
 import { partOne, checkGame, partTwo, getGameMinimums } from "./solution";
-import { readFileSync } from "fs";
 import { expect, test, describe } from "vitest";
+import getTypescriptInput from "../../../utils/getTypescriptInput";
 
-const input = readFileSync(`${__dirname}/../input`).toString();
+const input = await getTypescriptInput(__dirname);
 const maximums = { red: 12, green: 13, blue: 14 }
 
 const testInput = `Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green

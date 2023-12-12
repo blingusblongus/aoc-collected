@@ -1,8 +1,8 @@
 import { partOne, partTwo, isSymbol } from "./solution";
-import { readFileSync } from "fs";
 import { expect, test, describe } from "vitest";
+import getTypescriptInput from "../../../utils/getTypescriptInput";
 
-const input = readFileSync(`${__dirname}/../input`).toString();
+const input = await getTypescriptInput(__dirname);
 
 const testInput = `
 467..114..
