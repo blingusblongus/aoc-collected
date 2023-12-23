@@ -1,4 +1,4 @@
-import { hashString, partOne } from "./solution";
+import { hashString, partOne, partTwo } from "./solution";
 import { expect, test, describe } from "vitest";
 import getTypescriptInput from "../../../utils/getTypescriptInput";
 
@@ -30,15 +30,14 @@ describe("part one", () => {
     })
 })
 
-// describe("part two", () => {
-//     test("solves sample", () => {
-//         let result = partTwo(testInput)
-//         expect(result).toBe(5905)
-//     })
-//     test("solves actual", () => {
-//         let result = partTwo(input)
-//         console.log("part two:", result)
-//         expect(result).toBeLessThan(253926070);
-//         expect(result).toBe(253630098);
-//     })
-// })
+describe("part two", () => {
+    test("solves sample", () => {
+        let result = partTwo(testInput)
+        expect(result).toBe(145)
+    })
+    test("solves actual", () => {
+        let result = partTwo(input)
+        console.log("part two:", result)
+        expect(result).toBe(252782);
+    })
+})

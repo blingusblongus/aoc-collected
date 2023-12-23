@@ -1,2 +1,2 @@
-[Prompt](https://adventofcode.com/2023/day/13)
+[Prompt](https://adventofcode.com/2023/day/15)
 
