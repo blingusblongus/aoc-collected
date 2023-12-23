@@ -71,6 +71,8 @@ Vitest will search for files following the naming convention `*.test.ts/js`
         -   [Typescript](./2023/day11/typescript/solution.ts) :star: :star:
     -   [ ] [Day13](./2023/day13/)
         -   [Typescript](./2023/day13/typescript/solution.ts) :star:
+    -   [ ] [Day14](./2023/day14/)
+        -   [Typescript](./2023/day14/typescript/solution.ts) :star:
     -   [ ] [Day15](./2023/day15/)
         -   [Typescript](./2023/day15/typescript/solution.ts) :star: :star:
 -   [ ] 2022
