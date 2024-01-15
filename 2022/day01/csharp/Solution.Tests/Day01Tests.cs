@@ -1,22 +1,20 @@
-using Solution;
-public class Day01Tests
+using System.Reflection;
+using Xunit.Abstractions;
+
+namespace Solution.Tests
 {
-    [Fact]
-    public void PrintInput_WritesExpectedLines()
+    public class Tests
     {
-        /* [Fact] */
-        /* void PrintsInput() */
-        /* { */
-        /*     using var sw = new StringWriter(); */
-        /*     Console.SetOut(sw); */
-        /**/
-        /*     string input = "line1\nline2"; */
-        /*     Problem problem = new(input); */
-        /*     problem.PrintInput(); */
-        /**/
-        /*     string result = sw.ToString().TrimEnd(); */
-        /*     Assert.Equal("line1\nline2", result); */
-        /* } */
+        private readonly ITestOutputHelper _output;
+        private readonly string _year;
+        private readonly string _day;
+
+        public Tests(ITestOutputHelper output)
+        {
+            _output = output;
+            _year = "2022";
+            _day = "1";
+        }
 
         [Fact]
         void SatisfiesPartOneExample()
@@ -42,19 +40,51 @@ public class Day01Tests
             Assert.Equal(24000, result);
         }
 
-        /* [Fact] */
-        /* void SatisfiesPartOne() */
-        /* { */
-        /**/
-        /*     Problem problem = new(testInput); */
-        /*     int result = problem.Solve(); */
-        /**/
-        /*     Assert.Equal(24000, result); */
-        /* } */
-    }
+        [Fact]
+        async void SatisfiesPartOne()
+        {
+            string input = await GetInput();
 
-    /* public async Task<string> GetApiData(string url, string sessionKey) */
-    /* { */
-    /*     using (var ) */
-    /* } */
+            Problem problem = new(input);
+            int result = problem.Solve();
+
+            Assert.Equal(73211, result);
+        }
+
+        private string GetSession()
+        {
+            string envPath = "../../../../../../../.env";
+            string assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string envDir = Path.Combine(assemblyDir, envPath);
+
+
+            string[] envText = File.ReadAllText(envDir).Trim().Split("\n");
+            string prefix = "AOC_SESSION=";
+            /* _output.WriteLine("testing"); */
+            /* _output.WriteLine(prefix.Length.ToString()); */
+            foreach (string line in envText)
+            {
+                _output.WriteLine(line);
+                if (line.StartsWith(prefix))
+                {
+                    return line.Substring(prefix.Length);
+                }
+            }
+
+            _output.WriteLine("No environment var with the corresponding name found.");
+
+            return "";
+        }
+
+        public async Task<string> GetInput()
+        {
+            string sessionKey = GetSession();
+
+            using HttpClient client = new();
+            client.DefaultRequestHeaders.Add("Cookie", "session=" + sessionKey);
+
+            HttpResponseMessage response = await client.GetAsync($"https://adventofcode.com/{_year}/day/{_day}/input");
+            return await response.Content.ReadAsStringAsync();
+        }
+    }
 }
