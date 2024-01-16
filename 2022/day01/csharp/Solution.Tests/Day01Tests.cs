@@ -41,6 +41,30 @@ namespace Solution.Tests
         }
 
         [Fact]
+        void SatisfiesPartTwoExample()
+        {
+            string testInput = @"1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000";
+
+            Problem problem = new(testInput);
+            int result = problem.Solve2();
+
+            Assert.Equal(45000, result);
+        }
+
+        [Fact]
         async void SatisfiesPartOne()
         {
             string input = await GetInput();
@@ -49,6 +73,17 @@ namespace Solution.Tests
             int result = problem.Solve();
 
             Assert.Equal(73211, result);
+        }
+
+        [Fact]
+        async void SatisfiesPartTwo()
+        {
+            string input = await GetInput();
+
+            Problem problem = new(input);
+            int result = problem.Solve2();
+
+            Assert.Equal(213958, result);
         }
 
         private string GetSession()
