@@ -30,6 +30,11 @@ Vitest will search for files following the naming convention `*.test.ts/js`
 
 `pytest` will look for files with the `test_` prefix, and run functions within them that also have the `test_` prefix and at least one assertion.
 
+## C#
+
+1. Navigate to the `csharp/Solution.Tests` directory of the current challenge (e.g., `cd 2022/day01/csharp/Solution.Tests`)
+2. Run `dotnet test`
+
 
 # Todo
 
@@ -80,7 +85,7 @@ Vitest will search for files following the naming convention `*.test.ts/js`
         -   [Typescript](./2022/day01/typescript/solution.ts) :star: :star:
         -   [Python](./2022/day01/python/solution.py) :star: :star:
         -   [Rust](./2022/day01/rust/src/main.rs) :star: :star:
-        -   [C#](./2022/day01/csharp/Solution/Program.cs) :star: 
+        -   [C#](./2022/day01/csharp/Solution/Program.cs) :star: :star: 
     -   [x] Day02
         -   [Typescript](./2022/day02/typescript/solution.ts) :star: :star:
     -   [x] Day03
