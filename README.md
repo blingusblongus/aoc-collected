@@ -49,6 +49,7 @@ Vitest will search for files following the naming convention `*.test.ts/js`
 -   [ ] Add existing rust solutions
 -   [x] Add templates
 -   [ ] Script template setup(?)
+-   [ ] Streamline input fetching, perhaps with universal rust bin?
 
 # Progress
 
