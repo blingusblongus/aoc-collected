@@ -89,6 +89,7 @@ Vitest will search for files following the naming convention `*.test.ts/js`
         -   [C#](./2022/day01/csharp/Solution/Program.cs) :star: :star: 
     -   [x] Day02
         -   [Typescript](./2022/day02/typescript/solution.ts) :star: :star:
+        -   [Rust](./2022/day02/rust/src/main.rs) :star: :star:
     -   [x] Day03
         -   [Typescript](./2022/day03/typescript/solution.ts) :star: :star:
     -   [x] Day04
